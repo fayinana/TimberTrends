@@ -18,10 +18,11 @@ playBtn.addEventListener("click", (e) => {
   if (playBtn.classList.contains("play")) {
     video.play();
 
-    playBtn.textContent = "=";
+    playBtn.innerHTML = "<i class='fas fa-pause'></i>";
   } else {
     video.pause();
-    playBtn.textContent = "▶";
+
+    playBtn.innerHTML = "<i class='fas fa-play'></i>";
   }
 });
 
