@@ -61,6 +61,9 @@ html {
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+.lazy-img {
+  filter: blur(20px);
+}
 body {
   background: var(--section-clr);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -328,7 +331,7 @@ nav {
       rgba(16, 75, 39, 0.2),
       rgba(16, 75, 39, 0.1)
     ),
-    url("/assets/images/hero6.jpg") center/cover no-repeat fixed;
+    url("/assets/images/hero.jpg") center/cover no-repeat fixed;
 }
 
 .hero-text {
@@ -510,7 +513,7 @@ nav {
   width: 3rem;
   height: 3rem;
 }
-.small-title{
+.small-title {
   font-weight: 700;
   font-size: 1.75rem;
 }
@@ -523,7 +526,7 @@ nav {
 
 .products-div {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
   gap: 3rem;
   height: auto;
@@ -537,7 +540,6 @@ nav {
   display: flex;
   flex-direction: column;
   row-gap: 0.85rem;
-  padding: 2rem;
   border-radius: 5px;
 }
 .product-img {
@@ -546,10 +548,11 @@ nav {
   overflow: hidden;
 }
 .product img {
-  height: 100%;
+  width: 100%;
 }
 
 .product-info {
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -557,11 +560,19 @@ nav {
 }
 
 .product-price {
+  padding: 0 2rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
+.product-discription {
+  padding: 0 2rem;
+}
+.pro-btn {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
 /* testimonials */
 
 .testimonials {
@@ -729,7 +740,16 @@ video {
 
 .copy-write {
   font-size: 0.75rem;
-  font-weight: 100;
+  font-weight: 400;
   letter-spacing: 1px;
   list-style: none;
+}
+
+#preloader {
+  background: #000 url("/assets/images/loader.gif") no-repeat center;
+  width: 100%;
+  background-size: 25%;
+  height: 100vh;
+  position: fixed;
+  z-index: 100000000;
 }

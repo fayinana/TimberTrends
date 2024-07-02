@@ -48,6 +48,31 @@ scrollLinks.forEach((link) => {
       left: 0,
       top: position,
     });
-    // linksContainer.style.height = 0;
   });
+});
+
+const imgTargets = document.querySelectorAll("img[data-src]");
+const loadImg = function (entries, observe) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+  entry.target.src = entry.target.dataset.src;
+  entry.target.addEventListener("load", () => {
+    entry.target.classList.remove("lazy-img");
+  });
+
+  observe.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: "200px",
+});
+
+imgTargets.forEach((img) => imgObserver.observe(img));
+
+const loader = document.getElementById("preloader");
+window.addEventListener("load", () => {
+  loader.style.display = "none";
 });
